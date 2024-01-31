@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		 <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="style.css">
+	<script src="sweetalert.min.js"></script>
+	
+</head>
+<body>
+
+
+    <div class="nav">
+         <div class="logo">
+           <img src="titolo.png" id="iconaSito"><img src="scritta.png" id="scrittaSito">
+        </div>
+
+	
+				<div class="dropdown" id="b1" style="visibility: hidden;">
+  <button class="dropbtn"><p align="center" style="font-size:1.2vw">Gestisci utenti</p></button>
+  <div class="dropdown-content">
+	<a href="inserisci.html"><p align="center" style="font-size:1.2vw">Inserisci</p></a>
+    <a href="listaUtenti.html"><p align="center" style="font-size:1.2vw">Modifica</p></a>
+    <a href="listaUtentiMonitora.html"><p align="center" style="font-size:1.2vw">Monitora</p></a>
+
+  </div>
+</div>
+
+		<div class="dropdown" id="b2" style="visibility: hidden;">
+  <button class="dropbtn"><p align="center" style="font-size:1.2vw">Gestisci contenuti</p></button>
+  <div class="dropdown-content">
+	<a href="listaContenuti.html"><p align="center" style="font-size:1.2vw">Lista</p></a>
+	<a href="inserisciContenuti.html"><p align="center" style="font-size:1.2vw">Inserisci</p></a>
+  </div>
+</div>
+
+		<div class="dropdown" id="b3" style="visibility: hidden;">
+  <button class="dropbtn"><p align="center" style="font-size:1.2vw">
+  <script>
+					var cognome = sessionStorage.getItem('cognome');  
+					var nome = sessionStorage.getItem('nome'); 
+					document.write(cognome+" "+nome);
+</script></p></button>
+  <div class="dropdown-content">
+    <a href="modificaDatiAmm.html"><p align="center" style="font-size:1.2vw">Modifica dati account</p></a>
+  </div>
+</div>
+        
+        <img style="visibility: hidden;" src="logout.png" id="bottoneLogOut" onclick="effettuaLogout()";></img>
+
+        
+		
+    </div>
+
+    <div class="container">
+  <div class="popup" id="popup">
+    <img src="tick.png">
+    <h2>Login effettuato con successo!</h2>
+    <p>Verrai mandato alla schermata principale.</p>
+    <button type="button" onclick="closePopup()">ok</button>
+  </div>
+</div>
+<script>
+let popup = document.getElementById("popup");
+
+function closePopup() {
+
+location.href="homeAmministratore.html";
+}
+
+</script>
+</body>
+
+</html>

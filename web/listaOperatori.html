@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="style.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+	<script src="https://cdn.rawgit.com/kimmobrunfeldt/progressbar.js/0.6.1/dist/progressbar.js"></script>
+	<script src="sweetalert.min.js"></script>
+								<link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	
+	<script type="text/javascript">
+	
+	var loggato = sessionStorage.getItem('loggato');
+	
+	if(loggato != 1) {
+		location.href="index.html";
+	}
+	
+	$(function() {
+$('#menu > .item-submenu .submenu').click(function(){
+    if($('.item-submenu .sub-menu').css('display') == 'none'){
+            $('.item-submenu .sub-menu').css({'display':'block'});
+    } else {
+            $('#menu > .item-submenu .sub-menu').css({'display':'none'}); 
+}
+});
+$('#menuToggle > input').click(function(){
+    $('#menu > .item-submenu .sub-menu').css({'display':'none'}); 
+	
+});
+
+
+$('#menu > .item-submenu2 .submenu2').click(function(){
+    if($('.item-submenu2 .sub-menu2').css('display') == 'none'){
+            $('.item-submenu2 .sub-menu2').css({'display':'block'});
+    } else {
+            $('#menu > .item-submenu2 .sub-menu2').css({'display':'none'}); 
+}
+});
+$('#menuToggle > input').click(function(){
+    $('#menu > .item-submenu2 .sub-menu2').css({'display':'none'}); 
+});
+
+
+$('#menu > .item-submenu3 .submenu3').click(function(){
+    if($('.item-submenu3 .sub-menu3').css('display') == 'none'){
+            $('.item-submenu3 .sub-menu3').css({'display':'block'});
+    } else {
+            $('#menu > .item-submenu3 .sub-menu3').css({'display':'none'}); 
+}
+});
+$('#menuToggle > input').click(function(){
+    $('#menu > .item-submenu3 .sub-menu3').css({'display':'none'}); 
+});
+
+
+});
+
+	</script>
+
+	
+    <title>Lista operatori</title>
+</head>
+<body>
+    <div class="nav">
+         <div class="logo">
+             <img src="titolo.png" id="iconaSito" onclick="home()";><img src="scritta.png" id="scrittaSito" onclick="home()";>
+        </div>
+
+		<div class="dropdown" id="b1">
+  <button class="dropbtn"><p align="center" style="font-size:min(1.2vw, 17px);">Gestisci operatori</p></button>
+  <div class="dropdown-content">
+	<a href="inserisciOperatore.html"><p align="center" style="font-size:min(1.2vw, 17px);">Inserisci</p></a>
+    <a href="listaOperatori.html"><p align="center" style="font-size:min(1.2vw, 17px);">Abilita/disabilita</p></a>
+    
+  </div>
+</div>
+
+		<div class="dropdown" id="b4">
+  <button class="dropbtn"><p align="center" style="font-size:min(1.2vw, 17px);">Admin</p></button>
+  <div class="dropdown-content">
+    <a href="modificaDatiAmministratore.html"><p align="center" style="font-size:min(1.2vw, 17px);">Modifica account</p></a>
+    
+  </div>
+</div>
+        
+        <img src="logout.png" id="bottoneLogOut" onclick="effettuaLogout()";></img>
+
+        
+		
+    </div>
+	<div id="menuToggle">
+              <!-- checkbox is used as click reciever. -->
+              <input type="checkbox" />
+          
+              <!-- spans to act as a hamburger. -->
+              <span></span>
+              <span></span>
+              <span></span>
+              
+              <ul id="menu">
+			  
+                
+                <hr>
+                <li class="item-submenu">
+                 <a href="#" class="submenu">Gestisci operatori</a>
+                <ul class="sub-menu">
+                    <li><a href="inserisciOperatore.html">Inserisci</a></li>
+                    <hr>
+                    <li><a href="listaOperatori.html">Abilita/disabilita</a></li>
+					<hr>
+                </ul>
+                </li>
+				
+            
+                <hr>
+				<li class="item-submenu2">
+                 <a href="#" class="submenu2">Gestisci profilo</a>
+                <ul class="sub-menu2">
+                    <li><a href="modificaDatiAmministratore.html">Modifica account</a></li>
+                </ul>
+                </li>
+				
+				<hr>
+				
+				
+				
+              </ul>
+            </div>
+    <main>
+
+ </main>
+ 
+ <div class="progressBar" id="progressBar"></div>
+ <div class="wrapper" id="wrapper">
+	<div class="links">
+	<br>
+		<ul id="lista"><h3 id="h3listaAmm">Lista operatori</h3>
+			
+		</ul>
+		
+		<ul id="no-lista"><h3 id="h3nolista">Non hai inserito alcun operatore</h3>
+			
+		</ul>
+	</div>
+ <div class="view_main" id="view_main">
+		<div class="view_wrap list-view" id="listView" style="display: block;">
+		
+
+ 
+          </div>
+	</div>	  
+ </div>      
+
+    
+<script src="listaOperatori.js"></script>
+<script type="text/javascript">
+	function home() {
+	   location.href="homeAmministratore.html";
+	}
+</script>
+</body>
+
+</html>

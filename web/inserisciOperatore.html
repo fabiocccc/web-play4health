@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="style.css">
+
+	<script src="https://cdn.rawgit.com/kimmobrunfeldt/progressbar.js/0.6.1/dist/progressbar.js"></script>
+	<script src="sweetalert.min.js"></script>
+							<link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	
+	<script type="text/javascript">
+	
+	var loggato = sessionStorage.getItem('loggato');
+	
+	if(loggato != 1) {
+		location.href="index.html";
+	}
+	
+	$(function() {
+$('#menu > .item-submenu .submenu').click(function(){
+    if($('.item-submenu .sub-menu').css('display') == 'none'){
+            $('.item-submenu .sub-menu').css({'display':'block'});
+    } else {
+            $('#menu > .item-submenu .sub-menu').css({'display':'none'}); 
+}
+});
+$('#menuToggle > input').click(function(){
+    $('#menu > .item-submenu .sub-menu').css({'display':'none'}); 
+	
+});
+
+
+$('#menu > .item-submenu2 .submenu2').click(function(){
+    if($('.item-submenu2 .sub-menu2').css('display') == 'none'){
+            $('.item-submenu2 .sub-menu2').css({'display':'block'});
+    } else {
+            $('#menu > .item-submenu2 .sub-menu2').css({'display':'none'}); 
+}
+});
+$('#menuToggle > input').click(function(){
+    $('#menu > .item-submenu2 .sub-menu2').css({'display':'none'}); 
+});
+
+
+$('#menu > .item-submenu3 .submenu3').click(function(){
+    if($('.item-submenu3 .sub-menu3').css('display') == 'none'){
+            $('.item-submenu3 .sub-menu3').css({'display':'block'});
+    } else {
+            $('#menu > .item-submenu3 .sub-menu3').css({'display':'none'}); 
+}
+});
+$('#menuToggle > input').click(function(){
+    $('#menu > .item-submenu3 .sub-menu3').css({'display':'none'}); 
+});
+
+
+});
+	
+	</script>
+	
+
+	
+    <title>Inserisci operatore</title>
+</head>
+<body>
+    <div class="nav">
+         <div class="logo">
+             <img src="titolo.png" id="iconaSito" onclick="home()";><img src="scritta.png" id="scrittaSito" onclick="home()";>
+        </div>
+
+		<div class="dropdown" id="b1">
+  <button class="dropbtn"><p align="center" style="font-size:min(1.2vw, 17px);">Gestisci operatori</p></button>
+  <div class="dropdown-content">
+	<a href="inserisciOperatore.html"><p align="center" style="font-size:min(1.2vw, 17px);">Inserisci</p></a>
+    <a href="listaOperatori.html"><p align="center" style="font-size:min(1.2vw, 17px);">Abilita/disabilita</p></a>
+    
+  </div>
+</div>
+
+		<div class="dropdown" id="b4">
+  <button class="dropbtn"><p align="center" style="font-size:min(1.2vw, 17px);">Admin</p></button>
+  <div class="dropdown-content">
+    <a href="modificaDatiAmministratore.html"><p align="center" style="font-size:min(1.2vw, 17px);">Modifica account</p></a>
+    
+  </div>
+</div>
+        
+        <img src="logout.png" id="bottoneLogOut" onclick="effettuaLogout()";></img>
+
+        
+		
+    </div>
+	
+	<div id="menuToggle">
+              <!-- checkbox is used as click reciever. -->
+              <input type="checkbox" />
+          
+              <!-- spans to act as a hamburger. -->
+              <span></span>
+              <span></span>
+              <span></span>
+              
+              <ul id="menu">
+			  
+                
+                <hr>
+                <li class="item-submenu">
+                 <a href="#" class="submenu">Gestisci operatori</a>
+                <ul class="sub-menu">
+                    <li><a href="inserisciOperatore.html">Inserisci</a></li>
+                    <hr>
+                    <li><a href="listaOperatori.html">Abilita/disabilita</a></li>
+					<hr>
+                </ul>
+                </li>
+				
+            
+                <hr>
+				<li class="item-submenu2">
+                 <a href="#" class="submenu2">Gestisci profilo</a>
+                <ul class="sub-menu2">
+                    <li><a href="modificaDatiAmministratore.html">Modifica account</a></li>
+                </ul>
+                </li>
+				
+				<hr>
+				
+				
+				
+              </ul>
+            </div>
+	<br>
+
+		  
+<div class="container" id="container">
+        <div class="box form-box">
+            
+            <header>Inserisci operatore</header>
+            
+			
+			<div class="alertEmailGiaRegistrata">Email già registrata</div>
+			<div class="alertEmailNonValida">Email non valida</div>
+			<div class="alertNomeNonValido">Il nome non può contenere numeri e/o caratteri speciali</div>
+			<div class="alertCognomeNonValido">Il cognome non può contenere numeri e/o caratteri speciali</div>
+			<div class="alertPasswordNonValida">Password non valida<br>La password deve contenere almeno un carattere alfanumerico, un numero, una lettera maiuscola ed essere lungo almeno 8 caratteri</div>
+			<div class="alertUsernameGiaUsato">Username già utilizzato</div>
+			<form action="" id="inserisciOperatore">
+			
+				<div class="field input">
+                    <label for="name">Nome</label>
+                    <input type="text" name="name" id="name" autocomplete="off" required>
+                </div>
+				<div class="field input">
+                    <label for="name">Cognome</label>
+                    <input type="text" name="surname" id="surname" autocomplete="off" required>
+                </div>
+                <div class="field input">
+                    <label for="email">Email</label>
+                    <input type="text" name="email" id="email" autocomplete="off" required>
+                </div>
+				
+				<div class="field input">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" id="username" autocomplete="off" required>
+                </div>
+
+                <div class="field input">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" autocomplete="off" required>
+					 <i class="bi bi-eye-slash" id="togglePassword"></i>
+                </div>
+<br>
+                <div class="field">
+                    
+                    <center><input type="button" onclick="annulla()" class="btn" style="background-color:red" value="Esci">&nbsp <button type="submit" class="btn">Inserisci</button></center>
+                </div>
+				
+                
+            </form>
+        </div>
+        
+      </div>
+		  
+   
+	
+	   <div class="loading-dots" id="loading" style="display: none;">
+	  <h3>Inserimento operatore in corso</h3>
+	  <h1 class="dot one">.</h1><h1 class="dot two">.</h1><h1 class="dot three">.</h1>
+	</div> 
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="inserisciOperatore.js"></script>
+	 <script type="text/javascript">
+	 	 
+
+function showPreview(event, num){
+
+var fileName = document.getElementById("file-ip-1").value;
+
+var imgpath=document.getElementById('file-ip-1');
+
+if(event.target.files.length > 0) {
+
+	//calcolo kb immagine
+	var img=imgpath.files[0].size;
+	var imgsize=img/1024; 
+	//alert(imgsize);
+	
+	if(imgsize > 42) {
+
+         document.querySelector(".alertImmagineGrande").style.display = "block";
+	   
+			   //   remove the alert
+				  setTimeout(() => {
+					document.querySelector(".alertImmagineGrande").style.display = "none";
+				  }, 3000);
+
+}
+else {
+	
+	if(fileName.split(".")[1].toUpperCase() == "PNG"){
+	
+	var src = URL.createObjectURL(event.target.files[0]);
+	
+	var elems = document.getElementById("file-ip-1-preview");
+	
+	//alert(num);
+	//alert("num:"+num);
+	
+	if (num == 0) {
+	
+		elems.src = src;
+		elems.style.display = 'block';
+		
+	}
+	
+	 }
+	 
+	 
+	 else {
+	 document.querySelector(".alertImmagineNonPng").style.display = "block";
+		   
+				   //   remove the alert
+					  setTimeout(() => {
+						document.querySelector(".alertImmagineNonPng").style.display = "none";
+					  }, 3000);
+	 
+	 }
+}
+}
+
+    
+
+if(num != 0) {
+
+document.querySelector(".alertPasswordNonInserita").style.display = "block";
+	   
+			   //   remove the alert
+				  setTimeout(() => {
+					document.querySelector(".alertPasswordNonInserita").style.display = "none";
+				  }, 3000);
+
+}
+
+
+ 
+}
+
+function annulla() {
+
+ location.href="homeAmministratore.html";
+
+}
+
+	function home() {
+	   location.href="homeAmministratore.html";
+	}
+
+
+</script>
+</body>
+</html>

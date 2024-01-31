@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="style.css">
+	<script src="sweetalert.min.js"></script>
+	
+	<script type="text/javascript">
+	
+	var loggato = sessionStorage.getItem('loggato');
+	
+	if(loggato != 1) {
+		location.href="index.html";
+	}
+	
+	</script>
+	
+	<style>
+        
+        #rowAdder {
+            margin-left: 17px;
+        }
+		
+ .center {
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.form-input {
+  width:350px;
+  padding:20px;
+  background:#fff;
+  box-shadow: -3px -3px 7px rgba(94, 104, 121, 0.377),
+              3px 3px 7px rgba(94, 104, 121, 0.377);
+}
+
+.form-input img {
+  width:100%;
+  display:none;
+  margin-bottom:30px;
+}
+.form-input input {
+  display:none;
+}
+.form-input label {
+  display:block;
+  width:45%;
+  height:45px;
+  margin-left: 25%;
+  line-height:50px;
+  text-align:center;
+  background:#1172c2;
+  color:#fff;
+  font-size:15px;
+  font-family:”Open Sans”,sans-serif;
+  text-transform:Uppercase;
+  font-weight:600;
+  border-radius:5px;
+  cursor:pointer;
+}
+    </style>
+	
+    <title>Home</title>
+</head>
+<body>
+    <div class="nav">
+         <div class="logo">
+            <img src="titolo.png" id="iconaSito"><img src="scritta.png" id="scrittaSito">
+        </div>
+
+		<div class="dropdown" id="b1" style="visibility: hidden;">
+  <button class="dropbtn"><p align="center" style="font-size:1.2vw">Gestisci operatori</p></button>
+  <div class="dropdown-content">
+	<a href="inserisciOperatore.html"><p align="center" style="font-size:1.2vw">Inserisci</p></a>
+    <a href="listaOperatori.html"><p align="center" style="font-size:1.2vw">Abilita/disabilita</p></a>
+    
+  </div>
+</div>
+
+		<div class="dropdown" id="b4" style="visibility: hidden;">
+  <button class="dropbtn"><p align="center" style="font-size:1.2vw">Admin</p></button>
+  <div class="dropdown-content">
+    <a href="modificaDatiAmministratore.html"><p align="center" style="font-size:1.2vw">Modifica account</p></a>
+    
+  </div>
+</div>
+        <img src="logout.png" id="bottoneLogOut" onclick="effettuaLogout()";></img>
+		
+    </div>
+	<br>
+    <main>
+
+     
+
+		  
+ <div class="container" id="container">
+
+        <div class="box form-box">
+ <header>Seleziona un'operazione fra quelle disponibili:</header> 		
+             
+				
+				
+<div class="nav2">                                    
+<div class="dropdown2">
+  <button class="dropbtn2">Gestisci operatori</button>
+  <div class="dropdown-content2">
+  <div class="box form-box4">
+	<button class="dropbtn2" onclick="inserisciOperatore();">Inserisci</button><br>
+    <button class="dropbtn2" onclick="abilita();">Abilita/disabilita</button>
+</div>
+</div>
+  
+</div>
+</div>
+<br>
+<div class="nav2">                                    
+<div class="dropdown4">
+  <button class="dropbtn4" onclick="modifica();">Gestisci profilo</button>
+</div>
+</div>
+<br>
+
+<br>		
+<h5>Clicca il pulsante per visualizzare le statistiche</h5>			
+<center><button class="btnStatisticheAmm" onclick="statistiche()">Statistiche Play4Health</button></center>				
+                 
+        </div>
+</div>
+		  
+       
+
+    </main>
+	
+	   <div class="loading-dots" id="loading" style="display: none;">
+	  <h3>Inserimento operatore in corso</h3>
+	  <h1 class="dot one">.</h1><h1 class="dot two">.</h1><h1 class="dot three">.</h1>
+	</div> 
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+   
+	 <script type="text/javascript">
+	 
+	 function inserisciOperatore() {
+
+	location.href="inserisciOperatore.html";
+
+}
+
+function modifica() {
+
+	location.href="modificaDatiAmministratore.html";
+
+}
+
+function abilita() {
+
+	location.href="listaOperatori.html";
+
+}
+
+function effettuaLogout() {
+	
+//alert conferma log out
+	swal({
+	title: "Sei sicuro di voler effettuare il logout?",
+	text: "Cliccando su si verrai disconnesso",
+	icon: "warning",
+	buttons: ["Annulla", "Si"],
+							
+	dangerMode: true,
+	})
+	.then(function (isOkay) {
+		if (isOkay) {
+			
+			//rimuovo i dati della sessione
+			sessionStorage.clear();
+			
+			//alert conferma logout
+			location.href="alertLogout.html";
+		}
+	});
+	return false;
+	
+}
+
+function statistiche() {
+	location.href="listaStatisticheOperatori.html";
+}
+	 	 
+
+function showPreview(event, num){
+
+var fileName = document.getElementById("file-ip-1").value;
+
+var imgpath=document.getElementById('file-ip-1');
+
+if(event.target.files.length > 0) {
+
+	//calcolo kb immagine
+	var img=imgpath.files[0].size;
+	var imgsize=img/1024; 
+	//alert(imgsize);
+	
+	if(imgsize > 42) {
+
+         document.querySelector(".alertImmagineGrande").style.display = "block";
+	   
+			   //   remove the alert
+				  setTimeout(() => {
+					document.querySelector(".alertImmagineGrande").style.display = "none";
+				  }, 3000);
+
+}
+else {
+	
+	if(fileName.split(".")[1].toUpperCase() == "PNG"){
+	
+	var src = URL.createObjectURL(event.target.files[0]);
+	
+	var elems = document.getElementById("file-ip-1-preview");
+	
+	//alert(num);
+	//alert("num:"+num);
+	
+	if (num == 0) {
+	
+		elems.src = src;
+		elems.style.display = 'block';
+		
+	}
+	
+	 }
+	 
+	 
+	 else {
+	 document.querySelector(".alertImmagineNonPng").style.display = "block";
+		   
+				   //   remove the alert
+					  setTimeout(() => {
+						document.querySelector(".alertImmagineNonPng").style.display = "none";
+					  }, 3000);
+	 
+	 }
+}
+}
+
+    
+
+if(num != 0) {
+
+document.querySelector(".alertPasswordNonInserita").style.display = "block";
+	   
+			   //   remove the alert
+				  setTimeout(() => {
+					document.querySelector(".alertPasswordNonInserita").style.display = "none";
+				  }, 3000);
+
+}
+
+
+ 
+}
+
+
+</script>
+</body>
+</html>

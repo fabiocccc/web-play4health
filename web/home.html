@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="style.css">
+	<script src="sweetalert.min.js"></script>
+	
+	<script type="text/javascript">
+	
+	var loggato = sessionStorage.getItem('loggato');
+	
+	if(loggato != 1) {
+		location.href="index.html";
+	}
+	
+	$(function() {
+$('#menu > .item-submenu .submenu').click(function(){
+    if($('.item-submenu .sub-menu').css('display') == 'none'){
+            $('.item-submenu .sub-menu').css({'display':'block'});
+    } else {
+            $('#menu > .item-submenu .sub-menu').css({'display':'none'}); 
+}
+});
+$('#menuToggle > input').click(function(){
+    $('#menu > .item-submenu .sub-menu').css({'display':'none'}); 
+	
+});
+
+
+$('#menu > .item-submenu2 .submenu2').click(function(){
+    if($('.item-submenu2 .sub-menu2').css('display') == 'none'){
+            $('.item-submenu2 .sub-menu2').css({'display':'block'});
+    } else {
+            $('#menu > .item-submenu2 .sub-menu2').css({'display':'none'}); 
+}
+});
+$('#menuToggle > input').click(function(){
+    $('#menu > .item-submenu2 .sub-menu2').css({'display':'none'}); 
+});
+
+
+$('#menu > .item-submenu3 .submenu3').click(function(){
+    if($('.item-submenu3 .sub-menu3').css('display') == 'none'){
+            $('.item-submenu3 .sub-menu3').css({'display':'block'});
+    } else {
+            $('#menu > .item-submenu3 .sub-menu3').css({'display':'none'}); 
+}
+});
+$('#menuToggle > input').click(function(){
+    $('#menu > .item-submenu3 .sub-menu3').css({'display':'none'}); 
+});
+
+
+});
+	
+	</script>
+	
+	<style>
+        
+        #rowAdder {
+            margin-left: 17px;
+        }
+		
+ .center {
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.form-input {
+  width:350px;
+  padding:20px;
+  background:#fff;
+  box-shadow: -3px -3px 7px rgba(94, 104, 121, 0.377),
+              3px 3px 7px rgba(94, 104, 121, 0.377);
+}
+
+.form-input img {
+  width:100%;
+  display:none;
+  margin-bottom:30px;
+}
+.form-input input {
+  display:none;
+}
+.form-input label {
+  display:block;
+  width:45%;
+  height:45px;
+  margin-left: 25%;
+  line-height:50px;
+  text-align:center;
+  background:#1172c2;
+  color:#fff;
+  font-size:15px;
+  font-family:”Open Sans”,sans-serif;
+  text-transform:Uppercase;
+  font-weight:600;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+    </style>
+	
+    <title>Home</title>
+</head>
+<body>
+
+    <div class="nav">
+         <div class="logo">
+            <img src="titolo.png" id="iconaSito" onclick="home()";><img src="scritta.png" id="scrittaSito" onclick="home()";>
+        </div>
+
+				<div class="dropdown" id="b1" style="visibility: hidden;">
+  <button class="dropbtn"><p align="center" style="font-size:min(1.2vw, 17px);">Gestisci utenti</p></button>
+  <div class="dropdown-content">
+	<a href="inserisci.html"><p align="center" style="font-size:min(1.2vw, 17px);">Inserisci</p></a>
+    <a href="listaUtenti.html"><p align="center" style="font-size:min(1.2vw, 17px);" >Modifica</p></a>
+    <a href="listaUtentiMonitora.html"><p align="center" style="font-size:min(1.2vw, 17px);">Monitora</p></a>
+
+  </div>
+</div>
+
+		<div class="dropdown" id="b2" style="visibility: hidden;">
+  <button class="dropbtn"><p align="center" style="font-size:min(1.2vw, 17px);">Gestisci contenuti</p></button>
+  <div class="dropdown-content">
+	<a href="listaContenuti.html"><p align="center" style="font-size:min(1.2vw, 17px);">Lista</p></a>
+	<a href="inserisciContenuti.html"><p align="center" style="font-size:min(1.2vw, 17px);">Inserisci</p></a>
+  </div>
+</div>
+
+		<div class="dropdown" id="b3" style="visibility: hidden;">
+  <button class="dropbtn"><p align="center" style="font-size:min(1.2vw, 17px);">
+  <script>
+					var cognome = sessionStorage.getItem('cognome');  
+					var nome = sessionStorage.getItem('nome'); 
+					document.write(cognome+" "+nome);
+</script></p></button>
+  <div class="dropdown-content">
+    <a href="modificaDatiAmm.html"><p align="center" style="font-size:min(1.2vw, 17px);">Modifica dati account</p></a>
+  </div>
+</div>
+
+ <img src="logout.png" id="bottoneLogOut" onclick="effettuaLogout()";></img>
+		
+        
+		
+    </div>
+	
+	
+            
+
+
+
+        
+       
+    
+<br>
+ <div class="container" id="container">
+
+        <div class="box form-box">
+ <header>Seleziona un'operazione fra quelle disponibili:</header> 		
+             
+				
+				
+<div class="nav2">                                    
+<div class="dropdown2">
+  <button class="dropbtn2">Gestisci utenti</button>
+  <div class="dropdown-content2">
+  <div class="box form-box4">
+	<button class="dropbtn2" onclick="inserisciUtente();">Inserisci</button><br>
+    <button class="dropbtn2" onclick="modifica();">Modifica</button><br>
+    <button class="dropbtn2" onclick="monitora();">Monitora</button>
+</div>
+</div>
+  
+</div>
+</div>
+<br>
+<div class="nav2">                                    
+<div class="dropdown3">
+  <button class="dropbtn3">Gestisci contenuti</button>
+  <div class="dropdown-content3">
+  <div class="box form-box4">
+  <button class="dropbtn3" onclick="lista();">Lista</button><br>
+  <button class="dropbtn3" onclick="inserisciContenuti();">Inserisci</button>
+</div>
+  </div>
+</div>
+</div>
+<br>
+<div class="nav2">  
+		<div class="dropdown4">	
+  <button class="dropbtn4" onclick="modificaAccount();">Gestici profilo </button>
+</div>					
+</div>					           
+        </div>
+</div>
+		  
+      
+
+   
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    
+	 <script type="text/javascript">
+	 	 
+
+function inserisciUtente() {
+
+	location.href="inserisci.html";
+
+}
+
+function modifica() {
+
+	location.href="listaUtenti.html";
+
+}
+
+function monitora() {
+
+	location.href="listaUtentiMonitora.html";
+
+}
+
+function lista() {
+
+	location.href="listaContenuti.html";
+
+}
+
+function inserisciContenuti() {
+
+	location.href="inserisciContenuti.html";
+
+}
+
+function modificaAccount() {
+
+	location.href="modificaDatiAmm.html";
+
+}
+
+function effettuaLogout() {
+	
+//alert conferma log out
+	swal({
+	title: "Sei sicuro di voler effettuare il logout?",
+	text: "Cliccando su si verrai disconnesso",
+	icon: "warning",
+	buttons: ["Annulla", "Si"],
+							
+	dangerMode: true,
+	})
+	.then(function (isOkay) {
+		if (isOkay) {
+			
+			//rimuovo i dati della sessione
+			sessionStorage.clear();
+			
+			//alert conferma logout
+			location.href="alertLogout.html";
+		}
+	});
+	return false;
+	
+}
+
+
+</script>
+</body>
+</html>
